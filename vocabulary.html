@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary by Theme — Carnet, IB French Ab Initio Guide</title>
+<meta name="description" content="Vocabulary for IB French Ab Initio SL, organised into the five IB themes and their topics, with space to write your own example sentences.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   Carnet — IB French Ab Initio study guide
+   Design language: French school notebook (cahier Seyès
+   ruling, red correction-pen ink, Bic-blue accent) rendered
+   with editorial type. See design notes at bottom of file.
+   ========================================================= */
+
+:root {
+  /* colour */
+  --paper:        #F6F7F2;
+  --paper-flat:   #FBFBF9;
+  --card-bg:      #FFFFFF;
+  --ink:          #1E2A44;
+  --ink-soft:     #45516B;
+  --muted:        #8A93A6;
+  --rule-blue:    #C3D0E6;
+  --rule-red:     #C24C42;
+  --rule-red-soft:#E7B9B3;
+  --accent-blue:  #2650C7;
+  --line:         #E1E0D6;
+
+  /* type */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-hand:    "Caveat", cursive;
+
+  /* layout */
+  --max-w: 1140px;
+  --radius: 10px;
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper-flat);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-display); color: var(--ink); margin: 0; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+em { color: var(--rule-red); font-style: italic; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--paper);
+  padding: 0.75rem 1.25rem; z-index: 100;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus { left: 0; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- notebook ruling (signature element) ---------- */
+.notebook-page {
+  position: relative;
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 30px,
+      var(--rule-blue) 30px,
+      var(--rule-blue) 31px
+    ),
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 68px,
+      var(--rule-red-soft) 68px,
+      var(--rule-red-soft) 69px,
+      transparent 69px,
+      transparent 73px,
+      var(--rule-red-soft) 73px,
+      var(--rule-red-soft) 74px,
+      transparent 74px
+    );
+  background-position: 0 6px, 0 0;
+}
+
+@media (max-width: 640px) {
+  .notebook-page { background-image:
+    repeating-linear-gradient(
+      to bottom, transparent 0, transparent 26px,
+      var(--rule-blue) 26px, var(--rule-blue) 27px
+    );
+  }
+}
+
+/* ---------- top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251, 251, 249, 0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.wordmark .dot { color: var(--rule-red); }
+.wordmark--small { font-size: 1.15rem; }
+
+.topnav { display: flex; gap: 2rem; }
+.topnav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  position: relative;
+  padding-bottom: 2px;
+}
+.topnav a:hover { color: var(--accent-blue); }
+.topnav a::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -3px;
+  height: 2px; background: var(--rule-red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.2s ease;
+}
+.topnav a:hover::after { transform: scaleX(1); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px; height: 36px;
+  background: none; border: none; cursor: pointer;
+}
+.nav-toggle span {
+  display: block; height: 2px; width: 100%;
+  background: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: flex; }
+  .topnav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--paper-flat);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .topnav.is-open { max-height: 200px; }
+  .topnav a {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .topnav a::after { display: none; }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  padding: 4.5rem 1.5rem 3.5rem;
+}
+
+.hero__row {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.hero__inner { padding-left: 4.5rem; }
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rule-red);
+  margin-bottom: 1.25rem;
+}
+
+.hero__title {
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.hero__lede {
+  max-width: 42em;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn--primary {
+  background: var(--ink);
+  color: var(--paper-flat);
+}
+.btn--primary:hover { background: var(--accent-blue); transform: translateY(-1px); }
+.btn--ghost {
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+}
+.btn--ghost:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+.hero__note {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--rule-red);
+  transform: rotate(-1deg);
+}
+
+/* stat card, styled like a stamped index/exam card */
+.statcard {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.75rem 1.5rem;
+  box-shadow: 0 18px 40px -24px rgba(30, 42, 68, 0.35);
+  margin-left: 4.5rem;
+  margin-right: 1.5rem;
+  position: relative;
+  transform: rotate(1.1deg);
+}
+.statcard::before {
+  content: "";
+  position: absolute; inset: 8px;
+  border: 1px dashed var(--rule-blue);
+  border-radius: 6px;
+  pointer-events: none;
+}
+.statcard__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1.1rem;
+}
+.statcard__list { display: flex; flex-direction: column; gap: 0.9rem; }
+.statcard__list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px dotted var(--line);
+}
+.statcard__list li:last-child { border-bottom: none; padding-bottom: 0; }
+.statcard__num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--accent-blue);
+  min-width: 3.2rem;
+}
+.statcard__pct { font-size: 1rem; }
+.statcard__label {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+.statcard__label small { color: var(--muted); }
+.statcard__foot {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (min-width: 900px) {
+  .hero__row { display: flex; align-items: flex-start; }
+  .hero__inner { flex: 1.35; }
+  .statcard { flex: 1; margin-top: 0.5rem; }
+}
+@media (max-width: 899px) {
+  .hero__inner { padding-left: 2.25rem; }
+  .statcard { margin-left: 2.25rem; margin-right: 0; margin-top: 2.5rem; transform: none; }
+}
+@media (max-width: 640px) {
+  .hero__inner { padding-left: 1.25rem; }
+  .statcard { margin-left: 1.25rem; margin-right: 1.25rem; }
+}
+
+/* ---------- section heading ---------- */
+.section-heading {
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  font-weight: 600;
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.section-heading__num {
+  font-size: 1.1rem;
+  color: var(--rule-red);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- start here ---------- */
+.start-here {
+  padding: 4rem 1.5rem 3rem;
+}
+.start-here > * { max-width: var(--max-w); margin-left: auto; margin-right: auto; }
+.start-here .section-heading { padding-left: 4.5rem; }
+
+.start-here__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding-left: 4.5rem;
+  padding-right: 1.5rem;
+  margin-top: 2rem;
+}
+.start-here__block h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+.start-here__block p { margin-bottom: 0.9rem; font-size: 0.98rem; }
+.start-here__block p:last-child { margin-bottom: 0; }
+
+.mini-stats { margin: 1.1rem 0; display: flex; flex-direction: column; gap: 0.7rem; }
+.mini-stats li {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule-blue);
+}
+.mini-stats li strong {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  margin-bottom: 0.15rem;
+}
+
+@media (max-width: 899px) {
+  .start-here .section-heading,
+  .start-here__grid { padding-left: 2.25rem; }
+  .start-here__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 640px) {
+  .start-here .section-heading,
+  .start-here__grid { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+/* marginalia — handwritten red-pen tips */
+.marginalia {
+  margin-top: 3rem;
+  margin-left: 4.5rem;
+  margin-right: 1.5rem;
+  padding: 1.75rem 2rem;
+  border: 1.5px dashed var(--rule-red-soft);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.55);
+}
+.marginalia__title {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--rule-red);
+  margin-bottom: 0.9rem;
+}
+.marginalia__list { display: flex; flex-direction: column; gap: 0.55rem; }
+.marginalia__list li {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: #7a3530;
+  position: relative;
+  padding-left: 1.4rem;
+}
+.marginalia__list li::before {
+  content: "—";
+  position: absolute; left: 0;
+  color: var(--rule-red);
+}
+
+@media (max-width: 899px) {
+  .marginalia { margin-left: 2.25rem; }
+}
+@media (max-width: 640px) {
+  .marginalia { margin-left: 1.25rem; margin-right: 1.25rem; padding: 1.4rem 1.5rem; }
+  .marginalia__list li { font-size: 1.15rem; }
+}
+
+/* ---------- sections grid ---------- */
+.sections {
+  padding: 4.5rem 1.5rem 5rem;
+  background: var(--paper-flat);
+}
+.sections__head,
+.card-grid { max-width: var(--max-w); margin: 0 auto; }
+
+.sections__intro {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 40em;
+}
+
+.card-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem 1.4rem;
+  display: block;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+a.card { cursor: pointer; }
+.card[aria-disabled="true"] { opacity: 0.62; }
+
+a.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 18px 34px -24px rgba(30, 42, 68, 0.45);
+}
+
+.card__num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--rule-blue);
+  margin-bottom: 0.6rem;
+}
+.card--live .card__num { color: var(--rule-red); }
+
+.card__badge {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+}
+.card__badge--live {
+  color: #1F7A4D;
+  border-color: #B9DFC7;
+  background: #EEF8F1;
+}
+
+.card__title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding-right: 5.5rem;
+}
+.card__desc {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .card__title { padding-right: 6rem; }
+}
+
+/* ---------- footer ---------- */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 2.5rem 1.5rem 3rem;
+  background: var(--paper-flat);
+}
+.footer__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer__text {
+  font-size: 0.85rem;
+  color: var(--muted);
+  max-width: 46em;
+}
+.footer__signoff {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--rule-red);
+}
+
+/* ---------- sub-page breadcrumb ---------- */
+.breadcrumb {
+  display: block;
+  max-width: var(--max-w);
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.breadcrumb:hover { color: var(--accent-blue); }
+
+/* ---------- sub-page hero (smaller version of homepage hero) ---------- */
+.page-hero {
+  padding: 2.5rem 1.5rem 3rem;
+}
+.page-hero__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-left: 4.5rem;
+}
+.page-hero__title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.1rem;
+}
+.page-hero__lede {
+  max-width: 46em;
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+}
+@media (max-width: 899px) {
+  .page-hero__inner { padding-left: 2.25rem; }
+}
+@media (max-width: 640px) {
+  .page-hero__inner { padding-left: 1.25rem; }
+}
+
+/* ---------- jump nav (in-page anchor links) ---------- */
+.jump-nav {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem 2.5rem 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+}
+.jump-nav a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  border-bottom: 1px dotted var(--accent-blue);
+  padding-bottom: 1px;
+}
+.jump-nav a:hover { color: var(--rule-red); border-color: var(--rule-red); }
+@media (max-width: 899px) {
+  .jump-nav { padding-left: 3.75rem; }
+}
+@media (max-width: 640px) {
+  .jump-nav { padding-left: 1.75rem; }
+}
+
+/* ---------- theme topic blocks + vocab tables ---------- */
+.topic {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.75rem 1.5rem 0 6rem;
+  scroll-margin-top: 5.5rem;
+}
+.topic:last-of-type { padding-bottom: 3rem; }
+@media (max-width: 899px) {
+  .topic { padding-left: 3.75rem; }
+}
+@media (max-width: 640px) {
+  .topic { padding-left: 1.75rem; padding-right: 1.25rem; }
+}
+
+.topic__title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.topic__title span {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--rule-red);
+}
+
+.table-scroll {
+  max-width: 880px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+}
+
+.vocab-table {
+  width: 100%;
+  max-width: 880px;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}.vocab-table th {
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--paper);
+  padding: 0.7rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+.vocab-table td {
+  padding: 0.65rem 1.1rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.vocab-table tr:last-child td { border-bottom: none; }
+.vocab-table td.fr { font-weight: 600; color: var(--ink); white-space: nowrap; }
+.vocab-table th:nth-child(3), .vocab-table td:nth-child(3) { width: 34%; }
+.vocab-table td.blank {
+  position: relative;
+}
+.vocab-table td.blank::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 1.3rem;
+  background-image: linear-gradient(to right, var(--rule-blue) 60%, transparent 0%);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+}
+
+@media (max-width: 640px) {
+  .vocab-table { font-size: 0.85rem; min-width: 560px; }
+  .vocab-table th, .vocab-table td { padding: 0.55rem 0.7rem; }
+  .table-scroll { border: 1px solid var(--line); }
+  .table-scroll .vocab-table { border: none; border-radius: 0; }
+}
+
+/* =========================================================
+   Design notes (kept for future passes):
+   Signature = cahier Seyès ruling (horizontal rule + double
+   red margin) applied only to the "written" sections (hero,
+   start-here), left plain for the sitemap/card grid — so the
+   notebook motif reads as a place, not a texture slapped on
+   everything. Handwriting face reserved strictly for the
+   red-ink marginalia, never for real content, so it stays a
+   garnish rather than a readability problem.
+   ========================================================= */
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="index.html" class="wordmark">carnet<span class="dot">.</span></a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="topnav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="topnav" id="topnav" aria-label="Primary">
+      <a href="index.html#start-here">Start Here</a>
+      <a href="index.html#sections">The Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <a class="breadcrumb" href="index.html#sections">← Back to the guide</a>
+
+  <section class="page-hero notebook-page">
+    <div class="page-hero__inner">
+      <p class="eyebrow">Section 02 · Vocabulary by Theme</p>
+      <h1 class="page-hero__title">Vocabulary, organised the way you'll actually revise it.</h1>
+      <p class="page-hero__lede">Five IB themes, each broken into the topics they actually cover in the exam. Every table has a blank third column — filling in your own example sentence is what makes a word stick, not just reading the English meaning next to it.</p>
+    </div>
+  </section>
+
+  <section class="sections" id="themes">
+    <div class="sections__head">
+      <h2 class="section-heading">The five themes</h2>
+      <p class="sections__intro">Work through them in order, or jump to whichever one you're being tested on this week.</p>
+    </div>
+
+    <div class="card-grid">
+
+      <a class="card card--live" href="vocabulary-identities.html">
+        <span class="card__num">01</span>
+        <span class="card__badge card__badge--live">Live now</span>
+        <h3 class="card__title">Identities</h3>
+        <p class="card__desc">Family &amp; relationships, personal appearance, emotions, daily routine.</p>
+      </a>
+
+      <div class="card" aria-disabled="true">
+        <span class="card__num">02</span>
+        <span class="card__badge">Coming soon</span>
+        <h3 class="card__title">Experiences</h3>
+        <p class="card__desc">Travel &amp; transport, food &amp; eating, leisure &amp; hobbies, school life.</p>
+      </div>
+
+      <div class="card" aria-disabled="true">
+        <span class="card__num">03</span>
+        <span class="card__badge">Coming soon</span>
+        <h3 class="card__title">Human Ingenuity</h3>
+        <p class="card__desc">Technology &amp; media, art &amp; culture, science &amp; invention.</p>
+      </div>
+
+      <div class="card" aria-disabled="true">
+        <span class="card__num">04</span>
+        <span class="card__badge">Coming soon</span>
+        <h3 class="card__title">Social Organisation</h3>
+        <p class="card__desc">Work &amp; careers, laws &amp; society, health &amp; wellbeing.</p>
+      </div>
+
+      <div class="card" aria-disabled="true">
+        <span class="card__num">05</span>
+        <span class="card__badge">Coming soon</span>
+        <h3 class="card__title">Sharing the Planet</h3>
+        <p class="card__desc">Environment, global issues, urban vs rural life.</p>
+      </div>
+
+      <div class="card" aria-disabled="true">
+        <span class="card__num">06</span>
+        <span class="card__badge">Coming soon</span>
+        <h3 class="card__title">Master Vocabulary Tracker</h3>
+        <p class="card__desc">A Google Sheet with all five themes in one place, plus a "learnt it?" column to self-track.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="index.html" class="wordmark wordmark--small">carnet<span class="dot">.</span></a>
+    <p class="footer__text">An independent, non-commercial study guide for IB French Ab Initio. Not affiliated with, endorsed by, or produced by the International Baccalaureate Organization.</p>
+    <p class="footer__signoff">Made by a student, for the students coming after. Bonne route.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('topnav');
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener('click', function () {
+    const isOpen = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
+</script>
+</body>
+</html>
