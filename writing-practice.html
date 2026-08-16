@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Writing Practice — Paper 1 | Carnet, IB French Ab Initio Guide</title>
+<meta name="description" content="IB French Ab Initio Paper 1 writing: how the exam works, text-type conventions, useful phrases, and two model answers with annotations.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   Carnet — IB French Ab Initio study guide
+   Design language: French school notebook (cahier Seyès
+   ruling, red correction-pen ink, Bic-blue accent) rendered
+   with editorial type. See design notes at bottom of file.
+   ========================================================= */
+
+:root {
+  /* colour */
+  --paper:        #F6F7F2;
+  --paper-flat:   #FBFBF9;
+  --card-bg:      #FFFFFF;
+  --ink:          #1E2A44;
+  --ink-soft:     #45516B;
+  --muted:        #8A93A6;
+  --rule-blue:    #C3D0E6;
+  --rule-red:     #C24C42;
+  --rule-red-soft:#E7B9B3;
+  --accent-blue:  #2650C7;
+  --line:         #E1E0D6;
+
+  /* type */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-hand:    "Caveat", cursive;
+
+  /* layout */
+  --max-w: 1140px;
+  --radius: 10px;
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--paper-flat);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { font-family: var(--font-display); color: var(--ink); margin: 0; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+em { color: var(--rule-red); font-style: italic; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--ink); color: var(--paper);
+  padding: 0.75rem 1.25rem; z-index: 100;
+  border-radius: 0 0 8px 0;
+}
+.skip-link:focus { left: 0; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- notebook ruling (signature element) ---------- */
+.notebook-page {
+  position: relative;
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 30px,
+      var(--rule-blue) 30px,
+      var(--rule-blue) 31px
+    ),
+    linear-gradient(
+      to right,
+      transparent 0,
+      transparent 68px,
+      var(--rule-red-soft) 68px,
+      var(--rule-red-soft) 69px,
+      transparent 69px,
+      transparent 73px,
+      var(--rule-red-soft) 73px,
+      var(--rule-red-soft) 74px,
+      transparent 74px
+    );
+  background-position: 0 6px, 0 0;
+}
+
+@media (max-width: 640px) {
+  .notebook-page { background-image:
+    repeating-linear-gradient(
+      to bottom, transparent 0, transparent 26px,
+      var(--rule-blue) 26px, var(--rule-blue) 27px
+    );
+  }
+}
+
+/* ---------- top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(251, 251, 249, 0.9);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+.topbar__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0.9rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.wordmark .dot { color: var(--rule-red); }
+.wordmark--small { font-size: 1.15rem; }
+
+.topnav { display: flex; gap: 2rem; }
+.topnav a {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  position: relative;
+  padding-bottom: 2px;
+}
+.topnav a:hover { color: var(--accent-blue); }
+.topnav a::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -3px;
+  height: 2px; background: var(--rule-red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.2s ease;
+}
+.topnav a:hover::after { transform: scaleX(1); }
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px; height: 36px;
+  background: none; border: none; cursor: pointer;
+}
+.nav-toggle span {
+  display: block; height: 2px; width: 100%;
+  background: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: flex; }
+  .topnav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    background: var(--paper-flat);
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+  .topnav.is-open { max-height: 200px; }
+  .topnav a {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .topnav a::after { display: none; }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  padding: 4.5rem 1.5rem 3.5rem;
+}
+
+.hero__row {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  gap: 3rem;
+}
+
+.hero__inner { padding-left: 4.5rem; }
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--rule-red);
+  margin-bottom: 1.25rem;
+}
+
+.hero__title {
+  font-size: clamp(2.75rem, 6vw, 4.75rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
+.hero__lede {
+  max-width: 42em;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn--primary {
+  background: var(--ink);
+  color: var(--paper-flat);
+}
+.btn--primary:hover { background: var(--accent-blue); transform: translateY(-1px); }
+.btn--ghost {
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+}
+.btn--ghost:hover { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+.hero__note {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--rule-red);
+  transform: rotate(-1deg);
+}
+
+/* stat card, styled like a stamped index/exam card */
+.statcard {
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.75rem 1.5rem;
+  box-shadow: 0 18px 40px -24px rgba(30, 42, 68, 0.35);
+  margin-left: 4.5rem;
+  margin-right: 1.5rem;
+  position: relative;
+  transform: rotate(1.1deg);
+}
+.statcard::before {
+  content: "";
+  position: absolute; inset: 8px;
+  border: 1px dashed var(--rule-blue);
+  border-radius: 6px;
+  pointer-events: none;
+}
+.statcard__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1.1rem;
+}
+.statcard__list { display: flex; flex-direction: column; gap: 0.9rem; }
+.statcard__list li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px dotted var(--line);
+}
+.statcard__list li:last-child { border-bottom: none; padding-bottom: 0; }
+.statcard__num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--accent-blue);
+  min-width: 3.2rem;
+}
+.statcard__pct { font-size: 1rem; }
+.statcard__label {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+.statcard__label small { color: var(--muted); }
+.statcard__foot {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+@media (min-width: 900px) {
+  .hero__row { display: flex; align-items: flex-start; }
+  .hero__inner { flex: 1.35; }
+  .statcard { flex: 1; margin-top: 0.5rem; }
+}
+@media (max-width: 899px) {
+  .hero__inner { padding-left: 2.25rem; }
+  .statcard { margin-left: 2.25rem; margin-right: 0; margin-top: 2.5rem; transform: none; }
+}
+@media (max-width: 640px) {
+  .hero__inner { padding-left: 1.25rem; }
+  .statcard { margin-left: 1.25rem; margin-right: 1.25rem; }
+}
+
+/* ---------- section heading ---------- */
+.section-heading {
+  font-size: clamp(1.7rem, 3.2vw, 2.3rem);
+  font-weight: 600;
+  display: flex;
+  align-items: baseline;
+  gap: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+.section-heading__num {
+  font-size: 1.1rem;
+  color: var(--rule-red);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* ---------- start here ---------- */
+.start-here {
+  padding: 4rem 1.5rem 3rem;
+}
+.start-here > * { max-width: var(--max-w); margin-left: auto; margin-right: auto; }
+.start-here .section-heading { padding-left: 4.5rem; }
+
+.start-here__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding-left: 4.5rem;
+  padding-right: 1.5rem;
+  margin-top: 2rem;
+}
+.start-here__block h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.85rem;
+}
+.start-here__block p { margin-bottom: 0.9rem; font-size: 0.98rem; }
+.start-here__block p:last-child { margin-bottom: 0; }
+
+.mini-stats { margin: 1.1rem 0; display: flex; flex-direction: column; gap: 0.7rem; }
+.mini-stats li {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule-blue);
+}
+.mini-stats li strong {
+  display: block;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  margin-bottom: 0.15rem;
+}
+
+@media (max-width: 899px) {
+  .start-here .section-heading,
+  .start-here__grid { padding-left: 2.25rem; }
+  .start-here__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 640px) {
+  .start-here .section-heading,
+  .start-here__grid { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+/* marginalia — handwritten red-pen tips */
+.marginalia {
+  margin-top: 3rem;
+  margin-left: 4.5rem;
+  margin-right: 1.5rem;
+  padding: 1.75rem 2rem;
+  border: 1.5px dashed var(--rule-red-soft);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.55);
+}
+.marginalia__title {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--rule-red);
+  margin-bottom: 0.9rem;
+}
+.marginalia__list { display: flex; flex-direction: column; gap: 0.55rem; }
+.marginalia__list li {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  line-height: 1.35;
+  color: #7a3530;
+  position: relative;
+  padding-left: 1.4rem;
+}
+.marginalia__list li::before {
+  content: "—";
+  position: absolute; left: 0;
+  color: var(--rule-red);
+}
+
+@media (max-width: 899px) {
+  .marginalia { margin-left: 2.25rem; }
+}
+@media (max-width: 640px) {
+  .marginalia { margin-left: 1.25rem; margin-right: 1.25rem; padding: 1.4rem 1.5rem; }
+  .marginalia__list li { font-size: 1.15rem; }
+}
+
+/* ---------- sections grid ---------- */
+.sections {
+  padding: 4.5rem 1.5rem 5rem;
+  background: var(--paper-flat);
+}
+.sections__head,
+.card-grid { max-width: var(--max-w); margin: 0 auto; }
+
+.sections__intro {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 1rem;
+  max-width: 40em;
+}
+
+.card-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem 1.4rem;
+  display: block;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+a.card { cursor: pointer; }
+.card[aria-disabled="true"] { opacity: 0.62; }
+
+a.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-blue);
+  box-shadow: 0 18px 34px -24px rgba(30, 42, 68, 0.45);
+}
+
+.card__num {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--rule-blue);
+  margin-bottom: 0.6rem;
+}
+.card--live .card__num { color: var(--rule-red); }
+
+.card__badge {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+}
+.card__badge--live {
+  color: #1F7A4D;
+  border-color: #B9DFC7;
+  background: #EEF8F1;
+}
+
+.card__title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  padding-right: 5.5rem;
+}
+.card__desc {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .card__title { padding-right: 6rem; }
+}
+
+/* ---------- footer ---------- */
+.footer {
+  border-top: 1px solid var(--line);
+  padding: 2.5rem 1.5rem 3rem;
+  background: var(--paper-flat);
+}
+.footer__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.footer__text {
+  font-size: 0.85rem;
+  color: var(--muted);
+  max-width: 46em;
+}
+.footer__signoff {
+  font-family: var(--font-hand);
+  font-size: 1.2rem;
+  color: var(--rule-red);
+}
+
+/* ---------- sub-page breadcrumb ---------- */
+.breadcrumb {
+  display: block;
+  max-width: var(--max-w);
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.breadcrumb:hover { color: var(--accent-blue); }
+
+/* ---------- sub-page hero (smaller version of homepage hero) ---------- */
+.page-hero {
+  padding: 2.5rem 1.5rem 3rem;
+}
+.page-hero__inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-left: 4.5rem;
+}
+.page-hero__title {
+  font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.1rem;
+}
+.page-hero__lede {
+  max-width: 46em;
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+}
+@media (max-width: 899px) {
+  .page-hero__inner { padding-left: 2.25rem; }
+}
+@media (max-width: 640px) {
+  .page-hero__inner { padding-left: 1.25rem; }
+}
+
+/* ---------- jump nav (in-page anchor links) ---------- */
+.jump-nav {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 1.5rem 2.5rem 6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1.2rem;
+}
+.jump-nav a {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  border-bottom: 1px dotted var(--accent-blue);
+  padding-bottom: 1px;
+}
+.jump-nav a:hover { color: var(--rule-red); border-color: var(--rule-red); }
+@media (max-width: 899px) {
+  .jump-nav { padding-left: 3.75rem; }
+}
+@media (max-width: 640px) {
+  .jump-nav { padding-left: 1.75rem; }
+}
+
+/* ---------- theme topic blocks + vocab tables ---------- */
+.topic {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2.75rem 1.5rem 0 6rem;
+  scroll-margin-top: 5.5rem;
+}
+.topic:last-of-type { padding-bottom: 3rem; }
+@media (max-width: 899px) {
+  .topic { padding-left: 3.75rem; }
+}
+@media (max-width: 640px) {
+  .topic { padding-left: 1.75rem; padding-right: 1.25rem; }
+}
+
+.topic__title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.topic__title span {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: var(--rule-red);
+}
+
+.topic__sublabel {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  margin: 1.75rem 0 0.75rem;
+}
+.topic__sublabel:first-of-type { margin-top: 0; }
+
+.table-scroll {
+  max-width: 880px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius);
+}
+
+.vocab-table {
+  width: 100%;
+  max-width: 880px;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}.vocab-table th {
+  text-align: left;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--paper);
+  padding: 0.7rem 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+.vocab-table td {
+  padding: 0.65rem 1.1rem;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.vocab-table tr:last-child td { border-bottom: none; }
+.vocab-table td.fr { font-weight: 600; color: var(--ink); white-space: nowrap; }
+.vocab-table th:nth-child(3), .vocab-table td:nth-child(3) { width: 34%; }
+.vocab-table td.blank {
+  position: relative;
+}
+.vocab-table td.blank::after {
+  content: "";
+  display: block;
+  height: 1px;
+  margin-top: 1.3rem;
+  background-image: linear-gradient(to right, var(--rule-blue) 60%, transparent 0%);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+}
+
+@media (max-width: 640px) {
+  .vocab-table { font-size: 0.85rem; min-width: 560px; }
+  .vocab-table th, .vocab-table td { padding: 0.55rem 0.7rem; }
+  .table-scroll { border: 1px solid var(--line); }
+  .table-scroll .vocab-table { border: none; border-radius: 0; }
+}
+
+/* ---------- grammar-page components ---------- */
+.formula-box {
+  max-width: 880px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent-blue);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.4rem;
+  margin: 0.25rem 0 1.75rem;
+}
+.formula-box__label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--accent-blue);
+  margin-bottom: 0.5rem;
+}
+.formula-box p { font-size: 0.98rem; color: var(--ink); margin-bottom: 0.5rem; }
+.formula-box p:last-child { margin-bottom: 0; }
+.formula-box code {
+  font-family: var(--font-body);
+  background: var(--paper);
+  padding: 0.1rem 0.45rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.formula-box .eg { color: var(--ink-soft); font-size: 0.92rem; }
+.formula-box .eg + .eg { margin-top: -0.3rem; }
+
+/* ---------- reading-practice components ---------- */
+.practice-text {
+  max-width: 760px;
+  background: var(--card-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem 1.85rem;
+  margin: 0 0 1.25rem;
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--ink);
+}
+.practice-text__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+  font-size: 1.2rem;
+  color: var(--ink);
+}
+.practice-text__title small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--rule-red);
+  margin-bottom: 0.3rem;
+}
+.practice-text p { margin-bottom: 0.9rem; }
+.practice-text p:last-child { margin-bottom: 0; }
+
+.qa-list { max-width: 880px; margin: 0 0 2rem; }
+.qa-item { border-bottom: 1px solid var(--line); padding: 0.9rem 0; }
+.qa-item:first-child { padding-top: 0; }
+.qa-item:last-child { border-bottom: none; padding-bottom: 0; }
+.qa-item__q { font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; font-size: 0.98rem; }
+.qa-item__q-en { font-size: 0.85rem; color: var(--ink-soft); font-style: italic; margin-bottom: 0.5rem; }
+.qa-item details { margin-top: 0.5rem; }
+.qa-item summary {
+  cursor: pointer;
+  color: var(--accent-blue);
+  font-weight: 600;
+  font-size: 0.88rem;
+  list-style: none;
+  display: inline-block;
+}
+.qa-item summary::-webkit-details-marker { display: none; }
+.qa-item summary::before { content: "▸ "; }
+.qa-item details[open] summary::before { content: "▾ "; }
+.qa-item .answer {
+  margin-top: 0.6rem;
+  padding: 0.75rem 1rem;
+  background: var(--paper);
+  border-radius: 8px;
+  font-size: 0.94rem;
+  color: var(--ink);
+}
+
+/* =========================================================
+   Design notes (kept for future passes):
+   Signature = cahier Seyès ruling (horizontal rule + double
+   red margin) applied only to the "written" sections (hero,
+   start-here), left plain for the sitemap/card grid — so the
+   notebook motif reads as a place, not a texture slapped on
+   everything. Handwriting face reserved strictly for the
+   red-ink marginalia, never for real content, so it stays a
+   garnish rather than a readability problem.
+   ========================================================= */
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a href="index.html" class="wordmark">carnet<span class="dot">.</span></a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="topnav">
+      <span></span><span></span><span></span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="topnav" id="topnav" aria-label="Primary">
+      <a href="index.html#start-here">Start Here</a>
+      <a href="index.html#sections">The Guide</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <a class="breadcrumb" href="index.html#sections">← Back to the guide</a>
+
+  <section class="page-hero notebook-page">
+    <div class="page-hero__inner">
+      <p class="eyebrow">Section 05 · Writing Practice</p>
+      <h1 class="page-hero__title">Writing — Paper 1</h1>
+      <p class="page-hero__lede">Paper 1 is short, but every word has to earn its place. How the exam is structured, the text-type conventions examiners actually check for, the phrases that make a response sound less like a translation exercise, and two full model answers with the reasoning behind them.</p>
+    </div>
+  </section>
+
+  <nav class="jump-nav" aria-label="Jump to topic">
+    <a href="#format">How the exam works</a>
+    <a href="#text-types">Text types &amp; conventions</a>
+    <a href="#approach">Phrases that earn marks</a>
+    <a href="#practice">Model answers</a>
+  </nav>
+
+  <section class="topic" id="format">
+    <h2 class="topic__title">How Paper 1 (writing) works</h2>
+
+    <div class="formula-box">
+      <p class="formula-box__label">Structure</p>
+      <p>Paper 1 is worth 25% of your final grade and lasts <strong>1 hour</strong>. You complete <strong>two tasks</strong> (Task A and Task B), of equal weighting, each answered in <strong>70–150 words</strong>. For each task you're given a choice of three prompts, each drawn from a different IB theme — pick whichever one you can write about most confidently.</p>
+    </div>
+
+    <div class="formula-box">
+      <p class="formula-box__label">One personal, one professional</p>
+      <p>Across the two tasks, one will ask for a <strong>personal text</strong> (email, blog post, diary entry, postcard) and the other for a <strong>professional or mass-media text</strong> (formal letter, article, notice, announcement). You choose the specific text type yourself from the options given for that task — so knowing the conventions below matters as much as the language itself.</p>
+    </div>
+
+    <div class="table-scroll">
+    <table class="vocab-table">
+      <thead><tr><th>Criterion</th><th>What it's really asking</th></tr></thead>
+      <tbody>
+        <tr><td class="fr">Language</td><td>Accuracy and range — correct verbs, agreement, and varied vocabulary, not just a handful of safe phrases.</td></tr>
+        <tr><td class="fr">Message</td><td>Did you actually answer the task? Every bullet point in the prompt needs a response.</td></tr>
+        <tr><td class="fr">Conceptual understanding</td><td>Register, audience, and text-type conventions — does it read like a real email, not an essay with "Salut" stuck on top?</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="max-width:880px; margin-top:-0.6rem; font-size:0.9rem; color:var(--muted);">You're not tested on outside knowledge of a topic — only on how well you communicate within it.</p>
+  </section>
+
+  <section class="topic" id="text-types">
+    <h2 class="topic__title">Text types &amp; conventions</h2>
+    <p style="max-width:880px; margin-bottom:1.25rem; font-size:0.95rem; color:var(--ink-soft);">Examiners check for these conventions specifically under "conceptual understanding" — get the opening and closing right and you're already partway to a good mark, before a single sentence of content.</p>
+
+    <div class="table-scroll table-scroll--wide">
+    <table class="vocab-table conj-table">
+      <thead><tr><th>Text type</th><th>Use it for</th><th>Opening</th><th>Closing</th></tr></thead>
+      <tbody>
+        <tr><td class="fr">Email / message (informal)</td><td>Writing to a friend or family member</td><td>Salut / Coucou / Cher, Chère [prénom]</td><td>Bisous / À bientôt / Grosse bise</td></tr>
+        <tr><td class="fr">Blog post</td><td>Sharing an experience or opinion publicly</td><td>An engaging title + first-person opening</td><td>Invite comments, or sign off with a first name</td></tr>
+        <tr><td class="fr">Diary entry</td><td>A private, personal reflection</td><td>Cher journal, + the date</td><td>No formal closing needed</td></tr>
+        <tr><td class="fr">Postcard</td><td>A brief update while travelling</td><td>Salut [prénom] !</td><td>Bisous / Grosses bises</td></tr>
+        <tr><td class="fr">Formal letter</td><td>Writing to someone you don't know, or an institution</td><td>Madame, Monsieur, / Cher Monsieur [nom],</td><td>Veuillez agréer, Madame, Monsieur, mes salutations distinguées.</td></tr>
+        <tr><td class="fr">Article</td><td>Informing or persuading a public audience (school paper, magazine)</td><td>A catchy headline, then third-person or general "on"</td><td>Often ends with a call to action, not a signature</td></tr>
+        <tr><td class="fr">Notice / announcement</td><td>Informing people about an event</td><td>A clear heading naming the event</td><td>Practical details — date, time, place, contact</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section class="topic" id="approach">
+    <h2 class="topic__title">Phrases that earn marks</h2>
+
+    <div class="formula-box">
+      <p class="formula-box__label">Before you write</p>
+      <p>Read the task for its bullet points, not just its topic — each one usually needs its own sentence or two, and missing one costs you Message marks even if your French is flawless. Pick the text type you're most confident writing in, not necessarily the "obvious" one.</p>
+    </div>
+
+    <div class="formula-box">
+      <p class="formula-box__label">Stay inside the word count</p>
+      <p>70–150 words is short. Padding with filler sentences doesn't help — examiners are marking density of content, not length. If you're well past 150, you're not being asked to write more; you're being asked to say the same thing more precisely.</p>
+    </div>
+
+    <p class="topic__sublabel">Opinion &amp; linking phrases worth reusing</p>
+    <div class="table-scroll">
+    <table class="vocab-table">
+      <thead><tr><th>French</th><th>English</th><th>Your example sentence</th></tr></thead>
+      <tbody>
+        <tr><td class="fr">à mon avis</td><td>in my opinion</td><td class="blank"></td></tr>
+        <tr><td class="fr">je trouve que / je pense que</td><td>I find that / I think that</td><td class="blank"></td></tr>
+        <tr><td class="fr">j'ai hâte de</td><td>I can't wait to</td><td class="blank"></td></tr>
+        <tr><td class="fr">c'est une excellente occasion de</td><td>it's a great opportunity to</td><td class="blank"></td></tr>
+        <tr><td class="fr">par exemple</td><td>for example</td><td class="blank"></td></tr>
+        <tr><td class="fr">n'hésitez pas à</td><td>don't hesitate to</td><td class="blank"></td></tr>
+        <tr><td class="fr">inscrivez-vous auprès de</td><td>sign up with (formal, event notices)</td><td class="blank"></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="max-width:880px; margin-top:-0.6rem; font-size:0.9rem; color:var(--muted);">These pair well with the connectors in <a href="grammar-reference.html#connectors" style="color:var(--accent-blue);">Grammar Notes → Reference Tables</a> — d'abord, ensuite, cependant, donc all do real work in a 100-word answer.</p>
+  </section>
+
+  <section class="topic" id="practice">
+    <h2 class="topic__title">Model answers</h2>
+    <p style="max-width:880px; margin-bottom:1.5rem; font-size:0.95rem; color:var(--ink-soft);">One personal text, one professional — the same pairing you'll get in the real exam. Read the prompt, try writing your own version first, and only then compare against the model.</p>
+
+    <p class="topic__sublabel">Task A — Personal text (email)</p>
+    <div class="formula-box">
+      <p class="formula-box__label">Prompt</p>
+      <p>Un(e) ami(e) français(e) t'a invité(e) à passer le week-end chez lui/elle. Écris un email pour accepter l'invitation. Mentionne pourquoi tu es content(e), ce que tu veux faire ensemble, et pose une question sur le week-end. (70–150 mots)</p>
+    </div>
+
+    <div class="practice-text">
+      <p class="practice-text__title"><small>Model answer · 79 mots</small>Réponse à l'invitation</p>
+      <p>Salut Marion,</p>
+      <p>Merci beaucoup pour ton invitation ! Je suis vraiment content(e) de venir passer le week-end chez toi, car j'adore ta ville et j'ai hâte de te revoir.</p>
+      <p>Le samedi, on pourrait se promener dans le centre-ville et visiter le marché. Ensuite, on pourrait regarder un film ou cuisiner ensemble — j'apprends à faire des crêpes en ce moment !</p>
+      <p>Est-ce que tes parents seront là aussi ? Et qu'est-ce que je dois apporter ?</p>
+      <p>À bientôt,<br>Léa</p>
+    </div>
+
+    <div class="formula-box">
+      <p class="formula-box__label">Why this works</p>
+      <p>Informal greeting and sign-off (Salut / À bientôt) match the email register. Every bullet point from the prompt is covered: reason for being happy (car j'adore ta ville), plans (on pourrait...), and a question about the weekend. Uses a connector (ensuite) and an opinion-adjacent phrase (j'ai hâte de) from the table above, plus a properly conjugated futur-proche-style suggestion with pourrait.</p>
+    </div>
+
+    <p class="topic__sublabel">Task B — Professional / mass-media text (article)</p>
+    <div class="formula-box">
+      <p class="formula-box__label">Prompt</p>
+      <p>Ton lycée organise une journée du bénévolat. Écris un article pour le journal du lycée pour encourager les élèves à participer. Explique ce qu'est le bénévolat, pourquoi c'est important, et donne un exemple d'activité. (70–150 mots)</p>
+    </div>
+
+    <div class="practice-text">
+      <p class="practice-text__title"><small>Model answer · 101 mots</small>Participez à la Journée du Bénévolat !</p>
+      <p>Le mois prochain, notre lycée organise une journée spéciale dédiée au bénévolat. C'est une excellente occasion de rencontrer nos voisins et d'aider notre communauté.</p>
+      <p>Le bénévolat, c'est donner de son temps sans être payé — par exemple, nettoyer un parc, aider dans une maison de retraite, ou collecter des vêtements pour les personnes dans le besoin. Cette expérience développe des compétences utiles pour l'avenir.</p>
+      <p>Cette année, les élèves vont planter des arbres dans le jardin communautaire. À mon avis, c'est un projet formidable pour notre environnement.</p>
+      <p>Inscrivez-vous avant vendredi auprès de Madame Dubois !</p>
+    </div>
+
+    <div class="formula-box">
+      <p class="formula-box__label">Why this works</p>
+      <p>A headline instead of a greeting, and no personal sign-off — both correct for an article. Covers all three bullet points: what volunteering is (c'est donner de son temps...), why it matters (développe des compétences utiles), and a concrete example (planter des arbres). Uses par exemple and à mon avis from the phrase table, and closes with a call to action rather than "bisous," which is exactly the register shift an email wouldn't need.</p>
+    </div>
+  </section>
+
+  <div class="marginalia" style="max-width: 1140px; margin-left: auto; margin-right: auto; margin-top: 1rem;" aria-label="Study tip">
+    <p class="marginalia__title">Tip <span aria-hidden="true">↴</span></p>
+    <ul class="marginalia__list">
+      <li>Write your own answer to a prompt before looking at the model — comparing your version afterward teaches you far more than reading a finished answer cold.</li>
+      <li>Getting the text type right (email vs. article vs. formal letter) is worth real marks under "conceptual understanding" — don't default to email for everything just because it's familiar.</li>
+      <li>Count your words once you're done. Consistently landing at 60 or 170 means your planning stage needs work, not your French.</li>
+    </ul>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <a href="index.html" class="wordmark wordmark--small">carnet<span class="dot">.</span></a>
+    <p class="footer__text">An independent, non-commercial study guide for IB French Ab Initio. Not affiliated with, endorsed by, or produced by the International Baccalaureate Organization.</p>
+    <p class="footer__signoff">Made by a student, for the students coming after. Bonne route.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const toggle = document.getElementById('navToggle');
+  const nav = document.getElementById('topnav');
+  if (!toggle || !nav) return;
+
+  toggle.addEventListener('click', function () {
+    const isOpen = nav.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+
+  nav.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
+</script>
+</body>
+</html>
